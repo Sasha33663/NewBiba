@@ -30,7 +30,12 @@ namespace WebApplication3
 
             app.MapControllers();
 
-            app.Run();
+            app.Run();//ertyyteytrty
+
+
+
+
+
         }
     }
 }
