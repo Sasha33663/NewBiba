@@ -25,7 +25,7 @@ namespace WebApplication3
 
             app.UseHttpsRedirection();
 
-            app.UseAuthorization();//new 2 
+            app.UseAuthorization();//newсапро 2 
 
 
 
