@@ -26,7 +26,7 @@ namespace WebApplication3
             app.UseHttpsRedirection();
 
             app.UseAuthorization();//newсапро 2 
-            app.UseAuthorization();//nвкенрвкернw 2 
+         
 
 
 
@@ -36,10 +36,7 @@ namespace WebApplication3
 
             app.Run();//ertyyteytrty
 
-
-
-
-
+ 
         }
     }
 }
