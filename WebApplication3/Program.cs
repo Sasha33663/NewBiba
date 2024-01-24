@@ -25,7 +25,10 @@ namespace WebApplication3
 
             app.UseHttpsRedirection();
 
-            app.UseAuthorization();
+            app.UseAuthorization();//new 2 
+
+
+
 
 
             app.MapControllers();
