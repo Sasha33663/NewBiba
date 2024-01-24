@@ -1,9 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using WebApplication3.Domain;
+﻿using WebApplication3.Domain;
 
 namespace Domain
 {
@@ -14,5 +9,4 @@ namespace Domain
         public string Email { get; set; }
         public List<Note> Notes { get; set; }
     }
-
 }

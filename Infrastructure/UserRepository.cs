@@ -12,8 +12,7 @@ namespace Infrastructure
         private readonly Database _database;
         public UserRepository(Database a)
         {
-            _database = a;
-
+            _database = a; 
         }
 
         public async Task AddUserAsync(User user)
