@@ -47,7 +47,7 @@ namespace Application
                 return new DeleteResult { Message = "Пользователь успешно удален" };
             }
 
-            return new DeleteResult { Message = "Пользователь не существует" };
+            return new DeleteResult { Message = "Пользователя не существует" };
         }
 
         public class DeleteResult
