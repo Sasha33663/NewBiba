@@ -1,14 +1,14 @@
 ﻿using Domain;
 using System.Linq.Expressions;
 
-namespace Infrastructure
+namespace Infrastructure.UserRepository
 {
     public interface IUserRepository
     {
-        Task AddUserAsync(User user);
+        Task AddUserInRepositoryAsync(User user);
         Task DeleteUserAsync(User user);
         Task<User> GetUserAsync(Expression<Func<User, bool>> predicate);
-
+        
     }
 
 }

@@ -1,5 +1,6 @@
 ﻿using Domain;
 using System.Linq.Expressions;
+using WebApplication3.Domain;
 using static Application.UserServes;
 
 namespace Application
@@ -7,8 +8,8 @@ namespace Application
     public interface IUserServes
     {
         Task<User> UserCreatAsync(string name, string email);
-        Task<DeleteResult> UserDeleteFromRepositoryAsync(string name);
-       
-
+        Task UserDeleteFromRepositoryAsync(string name);
+        Task<Note> NoteCreatAsync(string header, string text, Guid ID);
+        
     }
 }

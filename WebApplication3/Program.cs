@@ -1,6 +1,8 @@
 
 using Application;
 using Infrastructure;
+using Infrastructure.NoteRepository;
+using Infrastructure.UserRepository;
 using Microsoft.EntityFrameworkCore;
 using Presentation.Controllers;
 
@@ -12,18 +14,20 @@ namespace WebApplication3
         {
             var builder = WebApplication.CreateBuilder(args);
 
-            // Add services to the container.
-
             builder.Services.AddControllers().AddApplicationPart(typeof(UserController).Assembly);
-            // Learn more about configuring Swagger/OpenAPI at https://aka.ms/aspnetcore/swashbuckle
+
             builder.Services.AddEndpointsApiExplorer();
             builder.Services.AddSwaggerGen();
-            builder.Services.AddTransient<IUserServes, UserServes>();
+
             builder.Services.AddDbContext<Database>((options) => options.UseNpgsql("Server=localhost;Port=5432;Database=Meow;User Id=postgres;Password=Batonbatonbaton123;"));
+            
             builder.Services.AddTransient<IUserRepository, UserRepository>();
+            builder.Services.AddTransient<IUserServes, UserServes>();
+            builder.Services.AddTransient<INoteRepository, NoteRepository>();
+           
+                
             var app = builder.Build();
 
-            // Configure the HTTP request pipeline.
             if (app.Environment.IsDevelopment())
             {
                 app.UseSwagger();
@@ -31,14 +35,11 @@ namespace WebApplication3
             }
 
             app.UseHttpsRedirection();
-
-            app.UseAuthorization();//newсапро 2 
-     
+            app.UseAuthorization();
+            
             app.MapControllers();
 
-            app.Run();//ertyyteytrty
-
- 
+            app.Run();
         }
     }
 }
