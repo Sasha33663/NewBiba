@@ -38,18 +38,24 @@ namespace Application
 
         }
 
-        public async Task <User> UserDeleteFromRepositoryAsync(string name)
+        public async Task <DeleteResult> UserDeleteFromRepositoryAsync(string name)
         {
             var deletedUser = await _userRepository.GetUserAsync(u => u.Name == name);
-
             if (deletedUser != null)
             {
                 await _userRepository.DeleteUserAsync(deletedUser);
-                return deletedUser;
+                return new DeleteResult { Message = "Пользователь успешно удален" };
             }
-            return deletedUser;
+
+            return new DeleteResult { Message = "Пользователь не существует" };
         }
 
+        public class DeleteResult
+        {
+            public User DeletedUser { get; set; }
+            public bool Success { get; set; }
+            public string Message { get; set; }
+        }
 
 
     }
