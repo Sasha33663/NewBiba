@@ -20,5 +20,11 @@ namespace Presentation.Controllers
 
             return Json(b);
         }
+        [HttpDelete("delete")]
+        public async Task<IActionResult> Delete([FromBody]UserDTO userDTO)
+        {
+            var b = await _userServes.UserDeleteFromRepositoryAsync(userDTO.Name);
+            return Json(b); 
+        }
     }
 }

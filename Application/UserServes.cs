@@ -1,9 +1,12 @@
 ﻿using Domain;
 using Infrastructure;
+using Microsoft.VisualBasic;
+using Npgsql.EntityFrameworkCore.PostgreSQL.Query.Expressions.Internal;
 using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.Json.Nodes;
 using System.Threading.Tasks;
 
 namespace Application
@@ -34,5 +37,21 @@ namespace Application
 
 
         }
+
+        public async Task <User> UserDeleteFromRepositoryAsync(string name)
+        {
+            var deletedUser = await _userRepository.GetUserAsync(u => u.Name == name);
+
+            if (deletedUser != null)
+            {
+                await _userRepository.DeleteUserAsync(deletedUser);
+                return deletedUser;
+            }
+            return deletedUser;
+        }
+
+
+
     }
+    
 }
